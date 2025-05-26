@@ -1,4 +1,4 @@
-# 📰 Articles Code Challenge – Phase 3
+# 📰 Articles Code Challenge 
 
 This project models a simple publishing system using **Python** and **SQLite** with raw SQL (no ORM).
 
