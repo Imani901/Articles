@@ -6,6 +6,14 @@ class Article:
         self.title = title
         self.author_id = author_id
         self.magazine_id = magazine_id
+        Article.all.append(self)
+
+    @classmethod
+    def find_by_title(cls, title):
+        for article in cls.all:
+            if article.title == title:
+                return article
+        return None
 
     def save(self):
         conn = get_connection()

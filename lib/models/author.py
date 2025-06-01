@@ -5,6 +5,18 @@ class Author:
         self.id = id
         self.name = name
 
+
+    @classmethod
+    def find_by_name(cls, name):
+        for author in cls.all:
+            if author.name == name:
+                return author
+        return None
+
+    @classmethod
+    def top_author(cls):
+        return max(cls.all, key=lambda a: len(a.articles()), default=None)    
+
     def save(self):
         conn = get_connection()
         cursor = conn.cursor()

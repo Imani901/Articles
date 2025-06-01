@@ -5,6 +5,19 @@ class Magazine:
         self.id = id
         self.name = name
         self.category = category
+        Magazine.all.append(self)
+
+    @classmethod
+    def find_by_category(cls, category):
+        return [m for m in cls.all if m.category == category]
+
+    @classmethod
+    def with_multiple_authors(cls):
+        return [m for m in cls.all if len(set(a.author for a in m.articles())) > 1]
+
+    @classmethod
+    def article_counts(cls):
+        return {m: len(m.articles()) for m in cls.all}
 
     def save(self):
         conn = get_connection()
