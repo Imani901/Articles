@@ -1,5 +1,7 @@
 from lib.db.connection import get_connection
 
+all = []
+
 class Article:
     def __init__(self, title, author_id, magazine_id, id=None):
         self.id = id
