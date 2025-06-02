@@ -1,9 +1,12 @@
 from lib.db.connection import get_connection
 
+all = []
+
 class Author:
     def __init__(self, name, id=None):
         self.id = id
         self.name = name
+        Author.all.append(self)
 
 
     @classmethod
